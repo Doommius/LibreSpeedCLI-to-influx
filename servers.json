@@ -1,0 +1,11 @@
+[
+    {
+      "id": 1,
+      "name": "Nalnet Speedtest",
+      "server": "https://speedtest.nal-medienet.dk/",
+      "dlURL": "backend/garbage.php",
+      "ulURL": "backend/empty.php",
+      "pingURL": "backend/empty.php",
+      "getIpURL": "backend/getIP.php"
+    }
+  ]
