@@ -15,6 +15,7 @@ consolehandler = logging.StreamHandler()
 consolehandler.setLevel(logging.INFO)
 consolehandler.setFormatter(formatter)
 logger.addHandler(consolehandler)
+logger.setLevel(logging.INFO)
 
 
 bucket = "main"
