@@ -42,10 +42,10 @@ def format_for_influx(cliout):
     data = json.loads(cliout)[0]
     # There is additional data in the output.
 
-    p = influxdb_client.Point("speedtest").tag("server", "nalnet").field("speedtest_download", float(data['download']))
-    p.tag("server", "nalnet").field("speedtest_upload", float(data['upload']))
-    p.tag("server", "nalnet").field("ping", float(data['ping']))
-    p.tag("server", "nalnet").field("jitter", float(data['jitter']))
+    p = influxdb_client.Point("speedtest").tag("server", data['server']['url']).tag("client", data['client']['ip']).field("speedtest_download", float(data['download']))
+    p.tag("server", data['server']['url']).tag("client", data['client']['ip']).field("speedtest_upload", float(data['upload']))
+    p.tag("server", data['server']['url']).tag("client", data['client']['ip']).field("ping", float(data['ping']))
+    p.tag("server", data['server']['url']).tag("client", data['client']['ip']).field("jitter", float(data['jitter']))
     p.time(data['timestamp'])
     return p
 
