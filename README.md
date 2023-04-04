@@ -1,4 +1,4 @@
-# LibreSpeedCLI speedtest to influx
+# LibreSpeedCLI to influx
 
 Speedtest for LibreSpeed with InfluxDB as the data store.
 
