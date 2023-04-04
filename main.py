@@ -48,14 +48,13 @@ def format_for_influx(cliout):
     p.time(data['timestamp'])
     return p
 
-def main():       
+def main():
     while (1):  # Run a Speedtest and send the results to influxDB indefinitely.
         speedtest = subprocess.run(
             ["./librespeed-cli-linux-amd64","--local-json","servers.json","--server","1","--json"], capture_output=True)
 
         if speedtest.returncode == 0:  # Speedtest was successful.
             data = format_for_influx(speedtest.stdout)
-       
             try:
                 write_api.write(bucket=bucket, org=org, record=data)
                 logger.info("Data written to DB successfully")
